@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-chip>
+    <ion-icon name="map"></ion-icon>
+    <ion-title>寻想搜索</ion-title>
+  </ion-chip>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-card>
+    <bd-map></bd-map>
+    <ion-fab right bottom>
+      <button ion-fab>
+      <ion-icon name="pin"></ion-icon>
+    </button>
+      <ion-fab-list side="top">
+        <button ion-fab color="pink">搜人</button>
+        <button ion-fab color="pink">线路</button>
+      </ion-fab-list>
+      <ion-fab-list side="left">
+        <button ion-fab color="dark">记录</button>
+        <button ion-fab color="dark">历史</button>
+      </ion-fab-list>
+    </ion-fab>
+  </ion-card>
+</ion-content>

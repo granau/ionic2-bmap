@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-chip>
+      <ion-icon name="text"></ion-icon>
+      <ion-title>注册</ion-title>
+    </ion-chip>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form (ngSubmit)="onSubmit()">
+    <ion-list>
+
+      <ion-list-header>
+        欢迎注册寻想搜索系统
+      </ion-list-header>
+
+      <ion-item-group>
+        <ion-item>
+          <ion-icon name="text" [color]="nameb?'secondary':'danger'" item-left></ion-icon>
+          <ion-label color="primary" stacked>用户名：</ion-label>
+          <ion-input type="text" name="name" [(ngModel)]="logoDatas.name" (blur)="nameCheck()" (focus)="nameb=true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-label color="primary" stacked>密码：</ion-label>
+          <ion-input type="password" name="pass" [(ngModel)]="pass"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-label color="primary" stacked>重复密码：</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item>
+          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-label color="primary" stacked>Email：</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-label color="primary" stacked>授权码：</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item>
+        <ion-label color="primary" class="items" (click)="onItems()">
+          是否同意使用条款
+        </ion-label>
+        <ion-checkbox color="secondary" item-right></ion-checkbox>
+        <p>545</p>
+      </ion-item>
+
+      <!-- <ion-card *ngIf="items">
+      <ion-card-header text-center>{{ITEM.title1}}</ion-card-header>
+      <p *ngFor="let sitem of ITEM.contents1">{{sitem}}</p>
+      <ion-card-header text-center>{{ITEM.title2}}</ion-card-header>
+      <p *ngFor="let titem of ITEM.contents2">{{titem}}</p>
+    </ion-card> -->
+    </ion-list>
+    <button type="submit" ion-button block margin-top [disabled]="true">提交</button>
+  </form>
+</ion-content>
