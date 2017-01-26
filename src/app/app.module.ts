@@ -8,6 +8,7 @@ import { SignPage } from '../pages/sign/sign';
 import { AboutPage } from '../pages/about/about';
 //二级推送页
 import { RegisterPage } from "../pages/register/register";
+import { TermPage } from "../pages/term/term";
 //百度地图
 import { Bdmap } from '../components/bdmap/bdmap';
 
@@ -19,6 +20,7 @@ import { Bdmap } from '../components/bdmap/bdmap';
     SignPage,
     RegisterPage,
     AboutPage,
+    TermPage,
     Bdmap
   ],
   imports: [
@@ -31,6 +33,7 @@ import { Bdmap } from '../components/bdmap/bdmap';
     MapPage,
     SignPage,
     RegisterPage,
+    TermPage,
     AboutPage
   ],
   providers: [

@@ -7,63 +7,63 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
     <ion-list>
-
       <ion-list-header>
         欢迎注册寻想搜索系统
       </ion-list-header>
 
       <ion-item-group>
         <ion-item>
-          <ion-icon name="text" [color]="nameb?'secondary':'danger'" item-left></ion-icon>
-          <ion-label color="primary" stacked>用户名：</ion-label>
-          <ion-input type="text" name="name" [(ngModel)]="logoDatas.name" (blur)="nameCheck()" (focus)="nameb=true"></ion-input>
+
+          <ion-icon name="man" item-left></ion-icon>
+          <ion-label color="primary" stacked >用户名：</ion-label>
+          <ion-input type="text" formControlName="name" ></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-icon name="text" item-left></ion-icon>
           <ion-label color="primary" stacked>密码：</ion-label>
-          <ion-input type="password" name="pass" [(ngModel)]="pass"></ion-input>
+          <ion-input type="password" formControlName="pass"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-icon name="text" item-left></ion-icon>
           <ion-label color="primary" stacked>重复密码：</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" formControlName="repass"></ion-input>
         </ion-item>
       </ion-item-group>
 
       <ion-item-group>
-        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item-divider color="light" text-center>
+          <h4 *ngIf="spring" color="danger">
+            {{spname}}同名检查中 
+          <ion-spinner  name="circles" color="danger"></ion-spinner>
+        </h4>
+        </ion-item-divider>
         <ion-item>
-          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-icon name="mail"  item-left></ion-icon>
           <ion-label color="primary" stacked>Email：</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" formControlName="email" ></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-icon name="text" color="secondary" item-left></ion-icon>
+          <ion-icon name="send" item-left></ion-icon>
           <ion-label color="primary" stacked>授权码：</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" formControlName="givePass"></ion-input>
         </ion-item>
       </ion-item-group>
 
+      <ion-item-group>
+        <button type="button" ion-button outline small block (click)="presentModal()">阅读使用条款</button>
       <ion-item>
-        <ion-label color="primary" class="items" (click)="onItems()">
+        <ion-label  color="primary" class="items" >
           是否同意使用条款
         </ion-label>
-        <ion-checkbox color="secondary" item-right></ion-checkbox>
-        <p>545</p>
+        <ion-checkbox color="secondary" item-right [disabled]="termb" (ionChange)="ch=$event.checked"></ion-checkbox>
       </ion-item>
-
-      <!-- <ion-card *ngIf="items">
-      <ion-card-header text-center>{{ITEM.title1}}</ion-card-header>
-      <p *ngFor="let sitem of ITEM.contents1">{{sitem}}</p>
-      <ion-card-header text-center>{{ITEM.title2}}</ion-card-header>
-      <p *ngFor="let titem of ITEM.contents2">{{titem}}</p>
-    </ion-card> -->
+      </ion-item-group>
     </ion-list>
-    <button type="submit" ion-button block margin-top [disabled]="true">提交</button>
+    <button type="submit" ion-button block margin-top [disabled]="regForm.invalid||!ch">提交</button>
   </form>
 </ion-content>

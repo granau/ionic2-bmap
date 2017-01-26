@@ -20,9 +20,9 @@ export class Bdmap implements OnInit {
   constructor(private renderer: Renderer) {
     this.gpsPoints = sourceGpsPoint;
   }
-
+  //导入地图
   ngOnInit(){
-    //this.gpsToBaidu(this.gpsPoints);
+  //this.gpsToBaidu(this.gpsPoints);
   }
 
   //gps坐标转百度坐标

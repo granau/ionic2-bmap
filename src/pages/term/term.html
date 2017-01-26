@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>使用条款</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>{{terms.title1}}</h4>
+  <p *ngFor="let term1 of terms.contents1">{{term1}}</p>
+<br />
+  <h4>{{terms.title2}}</h4>
+  <p *ngFor="let term2 of terms.contents2">{{term2}}</p>
+  <ion-item no-line>
+  <button type="button" color="secondary" ion-button item-right icon-left outline (click)="onDiss()">
+    <ion-icon name="close" color="primary"></ion-icon>
+    关闭
+  </button>
+</ion-item>
+</ion-content>
